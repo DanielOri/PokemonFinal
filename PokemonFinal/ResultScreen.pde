@@ -1,4 +1,4 @@
-class ResultScreen{
+class ResultScreen {
   
  
  
