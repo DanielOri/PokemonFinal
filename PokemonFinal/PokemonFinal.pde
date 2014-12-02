@@ -5,14 +5,18 @@
 int screenCounter = 0;
 int highScore = 0;
 
+boolean runningGame = false;
+
 MainMenu mm = new MainMenu();
-GameStart gs = new GameStart();
+GameStart gs;// = new GameStart();
+ResultScreen rs;// = new ResultScreen();
 
 void setup (){
    
   size(400, 600);
   
-  //if (screenCounter == 1) gs.createYawnBalls();
+  if (screenCounter == 1) gs = new GameStart();
+  if (screenCounter == 2) rs = new ResultScreen();
     
 }
 
@@ -26,11 +30,22 @@ void draw(){
 void screenManager(){
   
   if (screenCounter == 0){
+    
     mm.runMainMenu();
+    
   } else if(screenCounter == 1){
-    gs.runGameStart();
+    
+    if (!runningGame){
+   
+     runningGame = true;
+    }
+    
+    gs.runGame();
+    
   } else if (screenCounter == 2){
-    //resultScreen();
+    
+    rs.runResultScreen();
+    
   }
   
 }
@@ -38,7 +53,21 @@ void screenManager(){
 void mousePressed(){
   
   if (screenCounter == 0){
+    
     mm.mouseActions();
+    
+  }
+  
+  if (screenCounter == 1){
+
+    gs.mouseActions();
+    
+  }
+  
+  if (screenCounter == 2){
+   
+    rs.mouseActions();
+    
   }
   
 }

@@ -20,6 +20,7 @@ class MainMenu {
  }
  
  void drawHighScore(){
+   fill(0);
    textSize(18);
    textAlign(CENTER, CENTER);
    text("HIGH SCORE: " + highScore, width/2, 580);
@@ -28,13 +29,14 @@ class MainMenu {
  void mouseActions(){
   
   if (mouseX > width/2 - 100 && mouseX < width/2 + 100 && mouseY > 370 && mouseY < 430){
-    println("Game start!");
+        
     screenCounter = 1;
+    setup();
     
   }
   
   if (mouseX > width/2 - 100 && mouseX < width/2 + 100 && mouseY > 450 && mouseY < 510){
-    println("Exit game!");
+    
     exit();
     
   }
